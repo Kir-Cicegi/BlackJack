@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    border: 3px solid black;
+}
+
+/* This is where we want the start button at the start of the game*/
+.start{ 
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
+}
+
+.playerResponse {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
