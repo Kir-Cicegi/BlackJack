@@ -12,11 +12,12 @@ let bHit = document.getElementById("hit")
 let bStand = document.getElementById("start")
 let bInfo = document.getElementById("info")
 let house = document.getElementById("house")
+let player = document.getElementById("player")
 
 
 
 
-// bStart.addEventListener("click", pickCard)
+// bStart.addEventListener("click", init)
 
 
 //create a deck of cards
@@ -44,11 +45,10 @@ for(let i = 0; i<suits.length; i++){
 }
 console.log(deck)
 
-// how to make cards appear!!!!???
 
 //make a function to randomly pick from the deck. 
 
-function pickCard (){   
+function pickCardP (){   
 let randomCard = [deck[Math.floor(Math.random() * deck.length)]]
 console.log(randomCard)
 let newClass = document.createElement("DIV")
@@ -60,12 +60,38 @@ player.appendChild(newClass);
 }
 
 
-pickCard();
+let startingCardsP = pickCardP()
+pickCardP();
+
+
+function pickCardH (){   
+    let randomCard = [deck[Math.floor(Math.random() * deck.length)]]
+    console.log(randomCard)
+    let newClass = document.createElement("DIV")
+    let result = randomCard.map(a => a.Class)
+    console.log(result)
+    newClass.className= "card "+result;
+    console.log(newClass)
+    house.appendChild(newClass);
+    }
+
+let startingCardsH = pickCardH()
+pickCardH();
+
+
+// function init(){
+//     house.innerHTML = startingCardsH
+//     player.innerHTML = startingCardsP
+//     bStart.style.display = "none";
+//     console.log(house.innerHTML)
+// }
 
 
 //start button initializes the game. 
 //deals two random cards to both 
 //updates the count with sum of two values 
+
+//style.display = "none"
 
 
 
