@@ -1,6 +1,7 @@
 let playerCount = 0
 let houseCount = 0
-
+let houseCards = []
+let playerCards =[]
 let playerScore = 0
 let houseScore = 0
 
@@ -13,6 +14,7 @@ let bStand = document.getElementById("stand")
 let bInfo = document.getElementById("info")
 let house = document.getElementById("house")
 let player = document.getElementById("player")
+let playerInput = document.getElementById("playerCount")
 
 
 bHit.style.display = "none";
@@ -22,6 +24,9 @@ player.style.display = "none";
 
 
 bStart.addEventListener("click", init)
+bHit.addEventListener("click", addCardP)
+
+
 //create a deck of cards
 
 let suits = ["h", "c", "d", "s"]
@@ -47,48 +52,79 @@ for(let i = 0; i<suits.length; i++){
 }
 console.log(deck)
 
-
-//make a function to randomly pick from the deck. 
-
-function pickCardP (){   
-let randomCard = [deck[Math.floor(Math.random() * deck.length)]]
-console.log(randomCard)
-let newClass = document.createElement("DIV")
-let result = randomCard.map(a => a.Class)
-console.log(result)
-newClass.className= "card "+result;
-console.log(newClass)
-player.appendChild(newClass);
-}
-
-
-
-let startingCardsP = pickCardP()
-pickCardP();
-
-
-function pickCardH (){   
-    let randomCard = [deck[Math.floor(Math.random() * deck.length)]]
-    console.log(randomCard)
-    let newClass = document.createElement("DIV")
-    let result = randomCard.map(a => a.Class)
-    console.log(result)
-    newClass.className= "card "+result;
-    console.log(newClass)
-    house.appendChild(newClass);
-    }
-
-let startingCardsH = pickCardH()
-pickCardH();
-
-
+//function that is initiated with start being clicked 
 function init(){
     bStart.style.display = "none";
     house.style.display = "block";
     player.style.display = "block";
+    addCardP();
+    addCardP();
+    addCardH();
+    addCardH();
     bHit.style.display = "block";
     bStand.style.display = "block";
 }
+
+//function to randomly pick from the deck & assign 
+function pickRandomCard(){
+    let randomCard = [deck[Math.floor(Math.random() * deck.length)]]
+    console.log(randomCard)
+    return randomCard
+}
+
+let newCard=[]
+
+//add the newCard's value 
+function newValues (){
+    newCard = pickRandomCard();
+    console.log(newCard)
+    assignClass();
+    assignValue();
+}
+
+
+function assignClass(){
+    let newClass = document.createElement("DIV")
+    let result = newCard.map(a => a.Class)
+    newClass.className= "card "+result;
+    return newClass 
+}
+    
+function assignValue(){
+    let total = newCard.map(v => v.Value)
+    return parseInt(total)  
+}
+
+
+function addCardP (){   
+    newValues()
+    let randomly = assignClass();
+    player.appendChild(randomly);
+    let eachCardCount = assignValue();
+    playerCount += eachCardCount  
+    console.log(playerCount)
+    playerInput.innerHTML = "Your total is: " + playerCount
+}
+
+function addCardH (){  
+    newValues() 
+    let randomly = assignClass();
+    house.appendChild(randomly);
+    let eachCardCount  = assignValue();
+    houseCount += eachCardCount
+    console.log(houseCount) 
+}
+
+
+
+
+//grabbing the values of randomly picked cards
+
+//adding the values of cards together and showing on player div 
+
+
+
+
 
 
 
