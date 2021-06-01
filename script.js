@@ -9,17 +9,19 @@ let scoreBoard = 0
 
 let bStart = document.getElementById("start")
 let bHit = document.getElementById("hit")
-let bStand = document.getElementById("start")
+let bStand = document.getElementById("stand")
 let bInfo = document.getElementById("info")
 let house = document.getElementById("house")
 let player = document.getElementById("player")
 
 
+bHit.style.display = "none";
+bStand.style.display = "none";
+house.style.display = "none";
+player.style.display = "none";
 
 
-// bStart.addEventListener("click", init)
-
-
+bStart.addEventListener("click", init)
 //create a deck of cards
 
 let suits = ["h", "c", "d", "s"]
@@ -60,6 +62,7 @@ player.appendChild(newClass);
 }
 
 
+
 let startingCardsP = pickCardP()
 pickCardP();
 
@@ -79,19 +82,21 @@ let startingCardsH = pickCardH()
 pickCardH();
 
 
-// function init(){
-//     house.innerHTML = startingCardsH
-//     player.innerHTML = startingCardsP
-//     bStart.style.display = "none";
-//     console.log(house.innerHTML)
-// }
+function init(){
+    bStart.style.display = "none";
+    house.style.display = "block";
+    player.style.display = "block";
+    bHit.style.display = "block";
+    bStand.style.display = "block";
+}
 
 
-//start button initializes the game. 
-//deals two random cards to both 
-//updates the count with sum of two values 
 
-//style.display = "none"
+
+//make the hit and stand buttons appear 2 seconds after cards are shown
+
+
+
 
 
 
