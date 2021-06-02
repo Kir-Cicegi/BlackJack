@@ -18,12 +18,17 @@ let playerInput = document.getElementById("playerCount")
 let displayResult = document.getElementById("display")
 let decisionBtn = document.getElementById("decision")
 
+decisionBtn.style.display= "none";
 
+function initialDisplay (){
 bHit.style.display = "none";
 bStand.style.display = "none";
 house.style.display = "none";
 player.style.display = "none";
-decisionBtn.style.display= "none";
+
+}
+
+initialDisplay();
 
 
 bStart.addEventListener("click", init)
@@ -39,10 +44,18 @@ bStand.addEventListener("click", () => {
     if (houseCount < 21 && playerCount < 21){
         if(houseCount < playerCount){
             displayResult.innerHTML = "Player Wins"
+            playerScore += 1
+            endGame();
         }displayResult.innerHTML = "House Wins"
+        houseScore += 1
+        endGame();
     }
 })
 
+decisionBtn.addEventListener("click", () => {
+    init();
+    initialDisplay();
+})
 
 //create a deck of cards
 
@@ -77,6 +90,7 @@ function init(){
     addCardP();
     addCardP();
     addCardH();
+    flipFirstCard();
     addCardH();
     bHit.style.display = "block";
     bStand.style.display = "block";
@@ -121,8 +135,19 @@ function addCardP (){
     playerCount += eachCardCount  
     console.log(playerCount)
     playerInput.innerHTML = "Your total is: " + playerCount
+    playerCards.push(random)
     compare();
 }
+
+function flipFirstCard (){
+    for (i=0; i<houseCards; i++){
+        if (houseCards[i] === "0"){
+        div.className = "card back-red";
+        }
+    }
+}
+
+console.log(houseCards.className)
 
 function addCardH (){  
     newValues() 
@@ -131,20 +156,34 @@ function addCardH (){
     let eachCardCount  = assignValue();
     houseCount += eachCardCount;
     console.log(houseCount) 
+    houseCards.push(random)
+    flipFirstCard();
     compare();  
 }
+
+
+
+
 
 //winning logic 
 
 function compare(){
     if (houseCount === 21){
         displayResult.innerHTML = "House Wins!"
+        houseScore += 1
+        endGame();
     }else if (playerCount === 21){
         displayResult.innerHTML = "Player Wins!"
+        playerScore += 1
+        endGame();
     }else if (playerCount > 21){
         displayResult.innerHTML = "Players Busts! House Wins"
+        houseScore += 1
+        endGame();
     }else if (houseCount > 21){
         displayResult.innerHTML = "House Busts! Player Wins"
+        playerScore += 1
+        endGame();
     }
 }
 
@@ -157,7 +196,15 @@ function houseAI() {
 
 
 function endGame (){
+    setTimeout(initialDisplay, 3000);
+    playerInput.style.display= "none"
+    displayResult.style.fontSize = "400%"
+    decisionBtn.style.display= "block"
+}
 
+
+function reSet(){
+    
 }
 
 
