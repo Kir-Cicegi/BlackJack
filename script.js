@@ -15,16 +15,33 @@ let bInfo = document.getElementById("info")
 let house = document.getElementById("house")
 let player = document.getElementById("player")
 let playerInput = document.getElementById("playerCount")
+let displayResult = document.getElementById("display")
+let decisionBtn = document.getElementById("decision")
 
 
 bHit.style.display = "none";
 bStand.style.display = "none";
 house.style.display = "none";
 player.style.display = "none";
+decisionBtn.style.display= "none";
 
 
 bStart.addEventListener("click", init)
-bHit.addEventListener("click", addCardP)
+bHit.addEventListener("click", () => {
+    addCardP();
+    houseAI();
+    compare();
+})
+
+bStand.addEventListener("click", () => {
+    houseAI();
+    compare();
+    if (houseCount < 21 && playerCount < 21){
+        if(houseCount < playerCount){
+            displayResult.innerHTML = "Player Wins"
+        }displayResult.innerHTML = "House Wins"
+    }
+})
 
 
 //create a deck of cards
@@ -98,35 +115,50 @@ function assignValue(){
 
 function addCardP (){   
     newValues()
-    let randomly = assignClass();
-    player.appendChild(randomly);
+    let random = assignClass();
+    player.appendChild(random);
     let eachCardCount = assignValue();
     playerCount += eachCardCount  
     console.log(playerCount)
     playerInput.innerHTML = "Your total is: " + playerCount
+    compare();
 }
 
 function addCardH (){  
     newValues() 
-    let randomly = assignClass();
-    house.appendChild(randomly);
+    let random = assignClass();
+    house.appendChild(random);
     let eachCardCount  = assignValue();
-    houseCount += eachCardCount
+    houseCount += eachCardCount;
     console.log(houseCount) 
+    compare();  
+}
+
+//winning logic 
+
+function compare(){
+    if (houseCount === 21){
+        displayResult.innerHTML = "House Wins!"
+    }else if (playerCount === 21){
+        displayResult.innerHTML = "Player Wins!"
+    }else if (playerCount > 21){
+        displayResult.innerHTML = "Players Busts! House Wins"
+    }else if (houseCount > 21){
+        displayResult.innerHTML = "House Busts! Player Wins"
+    }
 }
 
 
+function houseAI() {
+    if (houseCount < 17){
+    addCardH();
+    } compare();
+}
 
 
-//grabbing the values of randomly picked cards
+function endGame (){
 
-//adding the values of cards together and showing on player div 
-
-
-
-
-
-
+}
 
 
 //make the hit and stand buttons appear 2 seconds after cards are shown
