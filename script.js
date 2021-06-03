@@ -24,13 +24,12 @@ let infoImg = document.getElementById("infoimg");
 let closebtn = document.getElementById("close");
 
 
-
-
-
-
+displayResult.style.backgroundColor = "gainsboro";
 
 
 decisionBtn.style.display= "none";
+closebtn.style.display = "none";
+infoImg.style.display = "none"
 initialDisplay();
 
 
@@ -46,7 +45,7 @@ bStand.addEventListener("click", () => {
     compare();
     if (houseCount < 21 && playerCount < 21){
         if(houseCount < playerCount){
-            displayResult.innerHTML = "Player Wins"
+            displayResult.innerHTML = "Player Wins. Give out a drink!"
             playerScore += 1
             endGame();
         }displayResult.innerHTML = "House Wins! Player Drink Up!"
@@ -56,6 +55,11 @@ bStand.addEventListener("click", () => {
 })
 
 decisionBtn.addEventListener("click", reSet)
+bInfo.addEventListener("click", showInfo)
+closebtn.addEventListener("click", closeInfo)
+
+
+
 
 //create a deck of cards
 
@@ -91,8 +95,17 @@ function initialDisplay (){
     playerInput.style.display= "none";
     houseInput.style.display= "none";
     displayResult.style.display = "none";
-    }
+}
 
+
+function showInfo () {
+    infoImg.style.display = "block";
+    closebtn.style.display = "block";
+}
+
+function closeInfo(){
+    infoImg.style.display = "none";
+}
 
 //function that is initiated with start being clicked 
 function init(){
@@ -107,6 +120,7 @@ function init(){
     bStand.style.display = "block";
     playerInput.style.display= "block"
     decisionBtn.style.display = "none";
+    closebtn.style.display = "none";
 }
 
 //function to randomly pick from the deck & assign 
@@ -187,7 +201,7 @@ function compare(){
         houseScore += 1
         endGame();
     }else if (playerCount === 21){
-        displayResult.innerHTML = "Player Wins!"
+        displayResult.innerHTML = "Player Wins. Give out a drink!"
         playerScore += 1
         endGame();
     }else if (playerCount > 21){
@@ -195,7 +209,7 @@ function compare(){
         houseScore += 1
         endGame();
     }else if (houseCount > 21){
-        displayResult.innerHTML = "House Busts! Player Wins"
+        displayResult.innerHTML = "House Busts! Give out a drink!"
         playerScore += 1
         endGame();
     }
@@ -212,6 +226,8 @@ function houseAI() {
 
 function endGame (){
     displayResult.style.display = "block";
+    bStand.style.display = "none";
+    bHit.style.display = "none";
     setTimeout(initialDisplay, 3500);
     displayResult.style.textAlign = "center";
     displayResult.style.fontSize = "400%"

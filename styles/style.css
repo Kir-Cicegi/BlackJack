@@ -9,6 +9,9 @@ body{
     height: 100vh;
     position: relative;
     border: 3px solid black;
+    background-image: url("../images/bg.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* This is where we want the start button at the start of the game*/
@@ -20,6 +23,9 @@ body{
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    border-radius: 50%;
+    padding: 80px;
+    font-size: 30px;
 }
 
 .container {
@@ -42,7 +48,7 @@ body{
     padding: 20px;
     border-radius: 50%;
     font-size: 20px;
-    box-shadow: 0 5px rgb(158, 238, 207);
+    box-shadow: 0 5px rgb(10, 10, 10);
     cursor: pointer;
     border: none;
 }
@@ -52,12 +58,18 @@ body{
     padding: 80px;
     font-size: 30px;
 }
-.btn.infobtn{
+
+.iPop {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+#infobtn{
     font-size: 20px;
     margin-right: 40px;
     margin-top: 5px;
-    padding: 5px;
-    border-radius: 40%;
+    padding: 10px;
+    border-radius: 50%;
     align-self: flex-end;
 }
 
@@ -65,8 +77,21 @@ body{
     padding: 10px;
     align-self: center;
 }
-#btn:hover {
-    box-shadow: 0 12px 16px 0 white, 0 17px 50px 0 #f3f1f5;
-  }
 
 
+#infoimg {
+    height: 50vh;
+    width: 100%;
+    z-index: -1;
+}
+
+#hit:hover, #stand:hover, #infobtn:hover, #decision:hover{
+    box-shadow: 0 12px 16px 0 white, 0 17px 50px 0 #cdcbcf; 
+    padding: 20px;
+}
+
+.count {
+    width: 200px;
+    font-size:20px;
+    background-color: rgb(244, 242, 242);
+}
