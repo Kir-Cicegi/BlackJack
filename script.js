@@ -52,10 +52,7 @@ bStand.addEventListener("click", () => {
     }
 })
 
-decisionBtn.addEventListener("click", () => {
-    init();
-    initialDisplay();
-})
+decisionBtn.addEventListener("click", reSet)
 
 //create a deck of cards
 
@@ -90,10 +87,10 @@ function init(){
     addCardP();
     addCardP();
     addCardH();
-    flipFirstCard();
     addCardH();
     bHit.style.display = "block";
     bStand.style.display = "block";
+    decisionBtn.style.display = "none";
 }
 
 //function to randomly pick from the deck & assign 
@@ -117,7 +114,7 @@ function newValues (){
 function assignClass(){
     let newClass = document.createElement("DIV")
     let result = newCard.map(a => a.Class)
-    newClass.className= "card "+result;
+    newClass.className= "card large "+result;
     return newClass 
 }
     
@@ -127,10 +124,15 @@ function assignValue(){
 }
 
 
+
 function addCardP (){   
     newValues()
     let random = assignClass();
-    player.appendChild(random);
+    playerCards.push(random);
+    for(i=0; i<playerCards.length; i++){
+        let newCard = (playerCards[i])
+        player.appendChild(newCard)
+    }
     let eachCardCount = assignValue();
     playerCount += eachCardCount  
     console.log(playerCount)
@@ -139,29 +141,28 @@ function addCardP (){
     compare();
 }
 
-function flipFirstCard (){
-    for (i=0; i<houseCards; i++){
-        if (houseCards[i] === "0"){
-        div.className = "card back-red";
-        }
-    }
-}
 
-console.log(houseCards.className)
+
+
 
 function addCardH (){  
     newValues() 
     let random = assignClass();
-    house.appendChild(random);
+    houseCards.push(random)
+    for(i=0; i<houseCards.length; i++){
+        let newCard = (houseCards[i])
+        if (i === 0){
+            newCard.className = "card large back-red";
+        }
+        house.appendChild(newCard)
+    }
     let eachCardCount  = assignValue();
     houseCount += eachCardCount;
     console.log(houseCount) 
-    houseCards.push(random)
-    flipFirstCard();
     compare();  
 }
 
-
+console.log(houseCards)
 
 
 
@@ -195,20 +196,28 @@ function houseAI() {
 }
 
 
+
 function endGame (){
-    setTimeout(initialDisplay, 3000);
+    setTimeout(initialDisplay, 2000);
     playerInput.style.display= "none"
     displayResult.style.fontSize = "400%"
     decisionBtn.style.display= "block"
 }
 
 
+
 function reSet(){
-    
+    playerCount = 0
+    houseCount = 0
+    houseCards = [];
+    playerCards =[];
+    player.innerHTML = ""
+    house.innerHTML = ""
+    displayResult.innerHTML = ""
+    init();
 }
 
 
-//make the hit and stand buttons appear 2 seconds after cards are shown
 
 
 
