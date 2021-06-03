@@ -11,15 +11,24 @@
 </head>
 <body>
     <div class="container"> 
-        <button id="info" class="info">i</button>
+        <div id="iPop">
+            <button id="infobtn" class="btn info">i</button>
+            <span id="close">&times;</span>
+            <img id="infoimg">
+        </div>
+        
+        <!-- <div id="scoreboard"></div> -->
+        <button id="decision" class="btn d">Keep playing?</button>
+        <div id="houseCount"></div>
         <div id="house" class="house" placeholder="house"></div>
-        <button id="start" class="start">Start</button>
-        <button id="decision">Keep playing?</button>
+        <button id="start" class="btn start">Start</button>
+        
         <div id="display"></div>
+        
         <div id="playerCount"></div>
         <div class="playerResponse">
-            <button id="hit" class="hit">Hit</button>
-            <button id="stand" class="stand">Stand</button>
+            <button id="hit" class="btn">Hit  </button>
+            <button id="stand" class="btn">Stand</button>
         </div>
         <div id="player" class="player" 
         placeholder="player">

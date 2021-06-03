@@ -4,30 +4,33 @@ let houseCards = []
 let playerCards =[]
 let playerScore = 0
 let houseScore = 0
+let newCard=[]
 
-let scoreBoard = 0
 
 
 let bStart = document.getElementById("start")
 let bHit = document.getElementById("hit")
 let bStand = document.getElementById("stand")
-let bInfo = document.getElementById("info")
+let bInfo = document.getElementById("infobtn")
 let house = document.getElementById("house")
 let player = document.getElementById("player")
 let playerInput = document.getElementById("playerCount")
+let houseInput = document.getElementById("houseCount")
 let displayResult = document.getElementById("display")
 let decisionBtn = document.getElementById("decision")
+let scoreBoard = document.getElementById("scoreboard")
+let info = document.getElementById("iPop");
+let infoImg = document.getElementById("infoimg");
+let closebtn = document.getElementById("close");
+
+
+
+
+
+
+
 
 decisionBtn.style.display= "none";
-
-function initialDisplay (){
-bHit.style.display = "none";
-bStand.style.display = "none";
-house.style.display = "none";
-player.style.display = "none";
-
-}
-
 initialDisplay();
 
 
@@ -46,7 +49,7 @@ bStand.addEventListener("click", () => {
             displayResult.innerHTML = "Player Wins"
             playerScore += 1
             endGame();
-        }displayResult.innerHTML = "House Wins"
+        }displayResult.innerHTML = "House Wins! Player Drink Up!"
         houseScore += 1
         endGame();
     }
@@ -79,9 +82,21 @@ for(let i = 0; i<suits.length; i++){
 }
 console.log(deck)
 
+
+function initialDisplay (){
+    bHit.style.display = "none";
+    bStand.style.display = "none";
+    house.style.display = "none";
+    player.style.display = "none";
+    playerInput.style.display= "none";
+    houseInput.style.display= "none";
+    displayResult.style.display = "none";
+    }
+
+
 //function that is initiated with start being clicked 
 function init(){
-    bStart.style.display = "none";
+    bStart.style.visibility = "hidden";
     house.style.display = "block";
     player.style.display = "block";
     addCardP();
@@ -90,6 +105,7 @@ function init(){
     addCardH();
     bHit.style.display = "block";
     bStand.style.display = "block";
+    playerInput.style.display= "block"
     decisionBtn.style.display = "none";
 }
 
@@ -100,9 +116,7 @@ function pickRandomCard(){
     return randomCard
 }
 
-let newCard=[]
 
-//add the newCard's value 
 function newValues (){
     newCard = pickRandomCard();
     console.log(newCard)
@@ -117,7 +131,8 @@ function assignClass(){
     newClass.className= "card large "+result;
     return newClass 
 }
-    
+   
+
 function assignValue(){
     let total = newCard.map(v => v.Value)
     return parseInt(total)  
@@ -142,9 +157,6 @@ function addCardP (){
 }
 
 
-
-
-
 function addCardH (){  
     newValues() 
     let random = assignClass();
@@ -159,6 +171,7 @@ function addCardH (){
     let eachCardCount  = assignValue();
     houseCount += eachCardCount;
     console.log(houseCount) 
+    houseInput.innerHTML = "House total is: " + houseCount
     compare();  
 }
 
@@ -170,7 +183,7 @@ console.log(houseCards)
 
 function compare(){
     if (houseCount === 21){
-        displayResult.innerHTML = "House Wins!"
+        displayResult.innerHTML = "House Wins. Player Drinks Up!"
         houseScore += 1
         endGame();
     }else if (playerCount === 21){
@@ -178,7 +191,7 @@ function compare(){
         playerScore += 1
         endGame();
     }else if (playerCount > 21){
-        displayResult.innerHTML = "Players Busts! House Wins"
+        displayResult.innerHTML = "You Bust! Drink Up"
         houseScore += 1
         endGame();
     }else if (houseCount > 21){
@@ -198,12 +211,18 @@ function houseAI() {
 
 
 function endGame (){
-    setTimeout(initialDisplay, 2000);
-    playerInput.style.display= "none"
+    displayResult.style.display = "block";
+    setTimeout(initialDisplay, 3500);
+    displayResult.style.textAlign = "center";
     displayResult.style.fontSize = "400%"
-    decisionBtn.style.display= "block"
+    houseInput.style.display= "block";
+    setTimeout(keepPlaying, 3500)
 }
 
+
+function keepPlaying () {
+    decisionBtn.style.display= "block"
+}
 
 
 function reSet(){
@@ -213,6 +232,7 @@ function reSet(){
     playerCards =[];
     player.innerHTML = ""
     house.innerHTML = ""
+    
     displayResult.innerHTML = ""
     init();
 }
