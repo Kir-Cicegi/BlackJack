@@ -84,8 +84,9 @@ body{
 
 #infoimg {
     position: relative;
-    width: 100%;
+    width: 80%;
     z-index: -1;
+    margin-right: 10px;
 }
 
 #infobtn{
@@ -106,10 +107,11 @@ body{
 
 #close {
     position: absolute;
-    margin: 10px;
+    margin: 20px;
     cursor: pointer;
     padding: 10px;
     font-size: 40px;
+
 }
 
 #hit:hover, #stand:hover, #infobtn:hover, #decision:hover{

@@ -50,7 +50,7 @@ Cheers!
 
 ### Getting Started 
 
-Here is the **<a href="">link</a>** to the game! Have Fun! Bottoms up! But please drink responsibly:) 
+Here is the **<a href="https://kir-cicegi.github.io/BlackJack/">link</a>** to the game! Have Fun! Bottoms up! But please drink responsibly:) 
 
 
 
