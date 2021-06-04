@@ -14,7 +14,6 @@ body{
     background-size: cover;
 }
 
-/* This is where we want the start button at the start of the game*/
 .start{ 
     margin: 0;
     position: absolute;
@@ -32,8 +31,26 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-content: center;
     height: 100vh;
     width: 100vw;
+}
+
+.count {
+    width: 200px;
+    font-size:20px;
+    background-color: rgb(244, 242, 242);
+    margin-left: 5px;
+}
+
+.username {
+    position: absolute;
+    width: 250px;
+    font-size: 25px;
+    top: 30%;
+    left: 50%;
+    -ms-transform: translate(-50%, -30%);
+    transform: translate(-50%, -30%);
 }
 
 .playerResponse {
@@ -59,11 +76,18 @@ body{
     font-size: 30px;
 }
 
-.iPop {
+#iPop {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
 }
+
+#infoimg {
+    position: relative;
+    width: 100%;
+    z-index: -1;
+}
+
 #infobtn{
     font-size: 20px;
     margin-right: 40px;
@@ -71,6 +95,7 @@ body{
     padding: 10px;
     border-radius: 50%;
     align-self: flex-end;
+    box-shadow: none;
 }
 
 .btn.d {
@@ -79,10 +104,12 @@ body{
 }
 
 
-#infoimg {
-    height: 50vh;
-    width: 100%;
-    z-index: -1;
+#close {
+    position: absolute;
+    margin: 10px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 40px;
 }
 
 #hit:hover, #stand:hover, #infobtn:hover, #decision:hover{
@@ -90,8 +117,5 @@ body{
     padding: 20px;
 }
 
-.count {
-    width: 200px;
-    font-size:20px;
-    background-color: rgb(244, 242, 242);
-}
+
+
