@@ -84,11 +84,13 @@ function initialDisplay (){
 
 function showInfo () {
     infoImg.style.display = "block";
+    bInfo.style.display = "none";
     closebtn.style.display = "block";
 }
 
 function closeInfo(){
     infoImg.style.display = "none";
+    bInfo.style.display = "block";
     closebtn.style.display = "none";
 }
 
