@@ -2,6 +2,7 @@
 
 > Good old BlackJack on the rocks with a little bit of twist.
 
+
 ### Overview 
 
 The objective of the game is to beat the House && be the last man standing.
@@ -16,7 +17,7 @@ The player can choose to Hit(get another card) or Stand(stick to the cards in ha
 > As far as drinking goes, there are:
 
 ```
-_<!— 3 Simple Rules  —>_
+<!— 3 Simple Rules  —>
 
 For (round = 0;   round < till.everyone.is.drunk;   round++) {
 
@@ -37,9 +38,9 @@ Cheers!
 
 ### Screenshot
 
-![Initial Page](images/ss1.png)
-![Game in Progress](images/ss2.png)
-![House Wins](images/ss3.png)
+![Initial Page](https://imgur.com/nBSyTEF)
+![Game in Progress](https://imgur.com/IC1GauU)
+![House Wins](https://imgur.com/kSef55m)
 
 ### Technologies Used
 
@@ -49,11 +50,11 @@ Cheers!
 
 ### Getting Started 
 
-Here is the **<a href="">link</a>** to the game! Have Fun! Bottoms up but please drink responsibly:) 
+Here is the **<a href="">link</a>** to the game! Have Fun! Bottoms up! But please drink responsibly:) 
 
 
 
-### Next Steps: Planned future enhancements (icebox items).
+### Next Steps: Planned future enhancements
 - Responsiveness is still a work in progress. At the moment, the game best looks in smaller viewport:) 
 - More efficient shuffling function will be implemented.
 - Will try to smooth the transition between plays.
