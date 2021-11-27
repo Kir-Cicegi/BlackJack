@@ -110,6 +110,7 @@ function init(){
     playerInput.style.display= "block"
     decisionBtn.style.display = "none";
     closebtn.style.display = "none";
+    webkit.messageHandlers.callbackHandler.postMessage("camera");
     
 }
 
