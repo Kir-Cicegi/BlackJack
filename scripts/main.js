@@ -111,6 +111,7 @@ function init(){
     decisionBtn.style.display = "none";
     closebtn.style.display = "none";
     webkit.messageHandlers.bridge.postMessage('{"msg": "hello?","id": ' + Date.now() + '}');
+    window.alert("message")
     
 }
 
