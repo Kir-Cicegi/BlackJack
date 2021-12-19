@@ -8,6 +8,47 @@
     <link rel="stylesheet" href="styles/cardstarter.css">
     <script defer src="scripts/main.js"></script>
     <title>BlackJack</title>
+    
+
+</head>
+<body>
+    <center>
+        <div>
+          <video style='width: 100px; height: 100px;' id="vid"></video>
+        </div>
+        <br />
+        <button id="but" autoplay>
+          Open WebCam
+        </button>
+        <button id="click-photo">Click Photo</button>
+        <canvas id="canvas" width="320" height="240"></canvas>
+      </center>
+      
+
+      <a href="https://www.google.com">Link</a>
+    <div class="container"> 
+        
+        <div id="iPop">
+            <div id="close">&times;</div>
+            <button id="infobtn" class="btn info">i</button>
+            <img id="infoimg" src="images/infoPic.png">
+        </div>
+        <button id="decision" class="btn d">Keep playing?</button>
+        <input id="userName" class="username" placeholder="Name Here" value="" />
+        <div id="houseCount" class="count"></div>
+        <div id="house" class="house" placeholder="house"></div>
+        <button id="start" class="btn start">Start</button>
+        <div id="display"></div>
+        <div id="playerCount" class="count"></div>
+        <div class="playerResponse">
+            <button id="hit" class="btn">Hit  </button>
+            <button id="stand" class="btn">Stand</button>
+        </div>
+        <div id="player" class="player" placeholder="player"></div>
+        <div id="test"></div>   
+    </div>
+
+
     <script>
       var video = document.querySelector("#vid");
       var but = document.getElementById("but");
@@ -54,7 +95,7 @@
 
         // let camera_button = document.querySelector("#start-camera");
 // let video = document.querySelector("#vid");
-let click_button = document.querySelector("#click-photo");
+let click_button = document.getElementById("click-photo");
 let canvas = document.querySelector("#canvas");
 
 // camera_button.addEventListener('click', async function() {
@@ -63,6 +104,8 @@ let canvas = document.querySelector("#canvas");
 // });
 
 click_button.addEventListener('click', function() {
+    console.log('clicked');
+    document.getElementById('test').innerHTML = "clicked";
    	canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
    	let image_data_url = canvas.toDataURL('image/jpeg');
 
@@ -71,41 +114,5 @@ click_button.addEventListener('click', function() {
 });
       </script>
 
-</head>
-<body>
-    <center>
-        <div>
-          <video style='width: 100px; height: 100px;' id="vid"></video>
-        </div>
-        <br />
-        <button id="but" autoplay>
-          Open WebCam
-        </button>
-        <button id="click-photo">Click Photo</button>
-        <canvas id="canvas" width="320" height="240"></canvas>
-      </center>
-      
-
-      <a href="https://www.google.com">Link</a>
-    <div class="container"> 
-        
-        <div id="iPop">
-            <div id="close">&times;</div>
-            <button id="infobtn" class="btn info">i</button>
-            <img id="infoimg" src="images/infoPic.png">
-        </div>
-        <button id="decision" class="btn d">Keep playing?</button>
-        <input id="userName" class="username" placeholder="Name Here" value="" />
-        <div id="houseCount" class="count"></div>
-        <div id="house" class="house" placeholder="house"></div>
-        <button id="start" class="btn start">Start</button>
-        <div id="display"></div>
-        <div id="playerCount" class="count"></div>
-        <div class="playerResponse">
-            <button id="hit" class="btn">Hit  </button>
-            <button id="stand" class="btn">Stand</button>
-        </div>
-        <div id="player" class="player" placeholder="player"></div>   
-    </div>
 </body>
 </html>
