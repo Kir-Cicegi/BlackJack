@@ -23,6 +23,8 @@
         <button id="click-photo">Click Photo</button>
         <canvas id="canvas" width="320" height="240"></canvas>
       </center>
+
+      <input id="message" value="" />
       
 
       <a href="https://www.google.com">Link</a>
@@ -117,6 +119,7 @@ click_button.addEventListener('click', function() {
 function fillDetails(message) {
 console.log('message =' , message);
 alert(message)
+document.getElementById("message").value = message;
 }
 
       </script>
