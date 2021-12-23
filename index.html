@@ -113,6 +113,12 @@ click_button.addEventListener('click', function() {
    	console.log(image_data_url);
     webkit.messageHandlers.bridge.postMessage(image_data_url);
 });
+
+function fillDetails(message) {
+console.log('message =' , message);
+alert(message)
+}
+
       </script>
 
 </body>
