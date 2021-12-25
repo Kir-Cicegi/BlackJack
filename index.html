@@ -115,7 +115,7 @@ click_button.addEventListener('click', function() {
 
    	// // data url of the image
    	// console.log(image_data_url);
-    webkit.messageHandlers.bridge.postMessage("send");
+    webkit.messageHandlers.response.postMessage("send");
 });
 
 function fillDetails(message) {
