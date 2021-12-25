@@ -26,7 +26,7 @@
 
       <input id="message" value="" />
       
-
+      <button id="send">Send</button>
       <a href="https://www.google.com">Link</a>
     <div class="container"> 
         
@@ -120,7 +120,7 @@ function fillDetails(message) {
 console.log('message =' , message);
 alert(message)
 document.getElementById("message").value = message;
-
+webkit.messageHandlers.bridge.postMessage("send");
 }
 
       </script>
