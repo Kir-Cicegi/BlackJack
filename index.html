@@ -129,7 +129,7 @@ camera.addEventListener('click', function() {
 
    	// // data url of the image
    	// console.log(image_data_url);
-    webkit.messageHandlers.response.postMessage("bridge");
+    webkit.messageHandlers.bridge.postMessage("camera");
 });
 
 scanner.addEventListener('click', function() {
