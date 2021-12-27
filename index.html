@@ -22,11 +22,13 @@
         </button>
         <button id="click-photo">Click Photo</button>
         <canvas id="canvas" width="320" height="240"></canvas>
+        <button id="openCam">Take Photo</button>
+        <button id="scanner">Scanner</button>
+        <button id="send">Send</button>
+        <input id="message" value="" />
       </center>
 
-      <button id="scanner">Scanner</button>
-      <button id="send">Send</button>
-      <input id="message" value="" />
+     
       
       
       <a href="https://www.google.com">Link</a>
@@ -102,7 +104,7 @@
 let click_button = document.getElementById("send");
 let canvas = document.querySelector("#canvas");
 let scanner = document.getElementById("scanner")
-
+let camera = document.getElementById("openCam")
 // camera_button.addEventListener('click', async function() {
 //    	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
 // 	video.srcObject = stream;
@@ -117,6 +119,17 @@ click_button.addEventListener('click', function() {
    	// // data url of the image
    	// console.log(image_data_url);
     webkit.messageHandlers.response.postMessage("send");
+});
+
+camera.addEventListener('click', function() {
+    // console.log('clicked');
+    // document.getElementById('test').innerHTML = "clicked";
+   	// canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+   	// let image_data_url = canvas.toDataURL('image/jpeg');
+
+   	// // data url of the image
+   	// console.log(image_data_url);
+    webkit.messageHandlers.response.postMessage("camera");
 });
 
 scanner.addEventListener('click', function() {
