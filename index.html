@@ -26,12 +26,14 @@
         <button id="scanner">Scanner</button>
         <button id="send">Send</button>
         <input id="message" value="" />
+        <button id="external">One Signal</button>
       </center>
 
      
       
       
-      <a href="https://www.google.com">Link</a>
+      <btn><a href="https://www.google.com">Link</a></btn>
+      <br>
           <div class="container"> 
               
               <div id="iPop">
@@ -105,6 +107,7 @@ let click_button = document.getElementById("send");
 let canvas = document.querySelector("#canvas");
 let scanner = document.getElementById("scanner")
 let camera = document.getElementById("openCam")
+let external = document.getElementById("external")
 // camera_button.addEventListener('click', async function() {
 //    	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
 // 	video.srcObject = stream;
@@ -121,14 +124,13 @@ click_button.addEventListener('click', function() {
     webkit.messageHandlers.response.postMessage("send");
 });
 
-camera.addEventListener('click', function() {
-    // console.log('clicked');
-    // document.getElementById('test').innerHTML = "clicked";
-   	// canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-   	// let image_data_url = canvas.toDataURL('image/jpeg');
+external.addEventListener('click', function() {
 
-   	// // data url of the image
-   	// console.log(image_data_url);
+    webkit.messageHandlers.update.postMessage("69aa2c24-63d6-11ec-905d-e21349197ba4");
+});
+
+camera.addEventListener('click', function() {
+  
     webkit.messageHandlers.bridge.postMessage("camera");
 });
 
