@@ -27,6 +27,7 @@
         <button id="send">Send</button>
         <input id="message" value="" />
         <button id="external">One Signal</button>
+        <button id="scanned">Send Scanned</button>
         <div id="myBase">Selam</div>
       </center>
 
@@ -109,7 +110,7 @@ let canvas = document.querySelector("#canvas");
 let scanner = document.getElementById("scanner")
 let camera = document.getElementById("openCam")
 let external = document.getElementById("external")
-
+let scanned = document.getElementById("scanned")
 // camera_button.addEventListener('click', async function() {
 //    	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
 // 	video.srcObject = stream;
@@ -141,11 +142,25 @@ scanner.addEventListener('click', function() {
     webkit.messageHandlers.scanner.postMessage("scanner");
 });
 
+scanned.addEventListener('click', function() {
+
+webkit.messageHandlers.code.postMessage("code");
+});
+
 // console.log('message =' , message);
 // alert(message)
 
 
-function fillDetails(message) {
+function sendPhotos(message) {
+
+
+document.getElementById("myBase").innerHTML = message;
+// document.getElementById("message").value = message;
+
+}
+
+
+function scannedCode(message) {
 
 
 document.getElementById("myBase").innerHTML = message;
