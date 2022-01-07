@@ -30,6 +30,7 @@
         <button id="scanned">Send Scanned</button>
         <img id="scannedCode" src="" />
         <div id="myBase">Selam</div>
+        <div id="myCode">Code</div>
       </center>
 
      
@@ -165,7 +166,7 @@ document.getElementById("scannedCode").src=`data:image/png;base64, ${message}`
 function scannedCode(message) {
 
 
-document.getElementById("myBase").innerHTML = message;
+document.getElementById("myCode").innerHTML = message;
 // document.getElementById("message").value = message;
 
 }
