@@ -148,7 +148,7 @@ scanner.addEventListener('click', function() {
 
 scanned.addEventListener('click', function() {
 
-webkit.messageHandlers.code.postMessage("code");
+    webkit.messageHandlers.scanned.postMessage("code");
 });
 
 // console.log('message =' , message);
