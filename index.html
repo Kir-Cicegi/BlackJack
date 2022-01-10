@@ -133,6 +133,11 @@ click_button.addEventListener('click', function() {
     webkit.messageHandlers.response.postMessage("send");
 });
 
+
+var toastMessage = {
+     "alertType": "Success",
+     "Message": "You are great!"
+};
 external.addEventListener('click', function() {
 
     webkit.messageHandlers.external.postMessage("Kircicegi Belediyesi");
@@ -140,7 +145,7 @@ external.addEventListener('click', function() {
 
 toast.addEventListener('click', function() {
 
-webkit.messageHandlers.toast.postMessage("Warning");
+webkit.messageHandlers.toast.postMessage(toastMessage);
 });
 
 camera.addEventListener('click', function() {
