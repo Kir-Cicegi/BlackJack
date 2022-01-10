@@ -28,6 +28,7 @@
         <button id="scanned">Send Scanned</button>
         <input id="message" value="" />
         <button id="external">One Signal</button>
+        <button id="toast">Toast</button>
         
         <img id="scannedCode" src="" />
         <div id="myBase">Selam</div>
@@ -39,7 +40,7 @@
       
       <btn><a href="https://www.ekomgroup.com/kvkk-bilgilendirme/">Link</a></btn>
       <br>
-          <div class="container"> 
+          <!-- <div class="container"> 
               
               <div id="iPop">
                   <div id="close">&times;</div>
@@ -59,7 +60,7 @@
               </div>
               <div id="player" class="player" placeholder="player"></div>
               <div id="test"></div>   
-          </div>
+          </div> -->
 
 
     <script>
@@ -114,6 +115,7 @@ let scanner = document.getElementById("scanner")
 let camera = document.getElementById("openCam")
 let external = document.getElementById("external")
 let scanned = document.getElementById("scanned")
+let toast = document.getElementById("toast")
 // let codeImage = document.getElementById("scannedCode")
 // camera_button.addEventListener('click', async function() {
 //    	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
@@ -133,7 +135,12 @@ click_button.addEventListener('click', function() {
 
 external.addEventListener('click', function() {
 
-    webkit.messageHandlers.update.postMessage("69aa2c24-63d6-11ec-905d-e21349197ba4");
+    webkit.messageHandlers.external.postMessage("69aa2c24-63d6-11ec-905d-e21349197ba4");
+});
+
+toast.addEventListener('click', function() {
+
+webkit.messageHandlers.toast.postMessage("69aa2c24-63d6-11ec-905d-e21349197ba4");
 });
 
 camera.addEventListener('click', function() {
