@@ -33,6 +33,8 @@
         <img id="scannedCode" src="" />
         <div id="myBase">Base64</div>
         <div id="myCode">Scanned Code</div>
+        <div id="lat">Lat</div>
+        <div id="lon">Lon</div>
       </center>
 
      
@@ -182,6 +184,15 @@ function scannedCode(message) {
 
 
 document.getElementById("myCode").innerHTML = message;
+// document.getElementById("message").value = message;
+
+}
+
+function sendLocation(latitude, longitude ) {
+
+
+document.getElementById("lat").innerHTML = latitude;
+document.getElementById("lon").innerHTML = longitude;
 // document.getElementById("message").value = message;
 
 }
