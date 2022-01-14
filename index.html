@@ -36,6 +36,7 @@
         <div id="myCode">Scanned Code</div>
         <div id="lat">Lat</div>
         <div id="lon">Lon</div>
+        <div id="acc">Accuracy</div>
       </center>
 
      
@@ -202,11 +203,12 @@ document.getElementById("lat").innerHTML = message;
 document.getElementById("lon").innerHTML = message.lon;
 }
 
-function sendLocation(latitude, longitude ) {
+function sendLocation(latitude, longitude, accuracy ) {
 
 
 document.getElementById("lat").innerHTML = latitude;
 document.getElementById("lon").innerHTML = longitude;
+document.getElementById("acc").innerHTML = accuracy;
 // document.getElementById("message").value = message;
 
 }
