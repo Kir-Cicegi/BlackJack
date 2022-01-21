@@ -150,9 +150,15 @@ external.addEventListener('click', function() {
     webkit.messageHandlers.external.postMessage("Kircicegi Belediyesi");
 });
 
+var loginInput = {
+     "username": "Hasan",
+     "password": "123"
+};
+
+
 login.addEventListener('click', function() {
 
-webkit.messageHandlers.login.postMessage("login");
+webkit.messageHandlers.login.postMessage(loginInput);
 });
 
 
