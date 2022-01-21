@@ -30,6 +30,7 @@
         <input id="message" value="" />
         <button id="external">One Signal</button>
         <button id="toast">Toast</button>
+        <button id="pdfView">PDF</button>
         
         <img id="scannedCode" src="" />
         <div id="myBase">Base64</div>
@@ -122,6 +123,7 @@ let scanned = document.getElementById("scanned")
 let toast = document.getElementById("toast")
 let userLocation = document.getElementById("sendLocation")
 let inputField = document.getElementById("message")
+let pdfView = document.getElementById("pdfView")
 // let codeImage = document.getElementById("scannedCode")
 // camera_button.addEventListener('click', async function() {
 //    	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
@@ -144,6 +146,11 @@ click_button.addEventListener('click', function() {
 external.addEventListener('click', function() {
 
     webkit.messageHandlers.inputField.postMessage("Kircicegi Belediyesi");
+});
+
+pdfView.addEventListener('click', function() {
+
+webkit.messageHandlers.pdfView.postMessage("https://www.orimi.com/pdf-test.pdf");
 });
 
 inputField.addEventListener('click', function() {
