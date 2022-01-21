@@ -148,9 +148,16 @@ external.addEventListener('click', function() {
     webkit.messageHandlers.inputField.postMessage("Kircicegi Belediyesi");
 });
 
+
+var pdfObj = {
+     "pdfUrl": "https://www.orimi.com/pdf-test.pdf",
+     "pdfTitle": "This is the Title"
+};
+
+
 pdfView.addEventListener('click', function() {
 
-webkit.messageHandlers.pdfView.postMessage("https://www.orimi.com/pdf-test.pdf");
+webkit.messageHandlers.pdfView.postMessage(pdfObj);
 });
 
 inputField.addEventListener('click', function() {
