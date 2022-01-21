@@ -31,6 +31,7 @@
         <button id="external">One Signal</button>
         <button id="toast">Toast</button>
         <button id="pdfView">PDF</button>
+        <button id="login">login</button>
         
         <img id="scannedCode" src="" />
         <div id="myBase">Base64</div>
@@ -124,6 +125,7 @@ let toast = document.getElementById("toast")
 let userLocation = document.getElementById("sendLocation")
 let inputField = document.getElementById("message")
 let pdfView = document.getElementById("pdfView")
+let login = document.getElementById("login")
 // let codeImage = document.getElementById("scannedCode")
 // camera_button.addEventListener('click', async function() {
 //    	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
@@ -145,7 +147,12 @@ click_button.addEventListener('click', function() {
 
 external.addEventListener('click', function() {
 
-    webkit.messageHandlers.inputField.postMessage("Kircicegi Belediyesi");
+    webkit.messageHandlers.external.postMessage("Kircicegi Belediyesi");
+});
+
+login.addEventListener('click', function() {
+
+webkit.messageHandlers.login.postMessage("login");
 });
 
 
@@ -216,11 +223,11 @@ document.getElementById("myCode").innerHTML = message;
 
 }
 
-function changeInput(message) {
+function changeInput(username, password) {
 
+document.getElementById("username").value = username;
+document.getElementById("password").value = password;
 
-document.getElementById("message").value = message;
-// document.getElementById("message").value = message;
 
 }
 
