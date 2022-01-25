@@ -166,8 +166,9 @@ webkit.messageHandlers.login.postMessage(loginInput);
 
 
 var pdfObj = {
-     "pdfUrl": "https://www.orimi.com/pdf-test.pdf",
-     "pdfTitle": "This is the Title"
+     "pdfUrl": "https://platomapp.ekomgroup.com/download/pdf/newPDF33.pdf",
+     "pdfTitle": "This is the Title",
+     "pdfMessage": "Hello"
 };
 
 
@@ -178,13 +179,15 @@ webkit.messageHandlers.pdfView.postMessage(pdfObj);
 
 inputField.addEventListener('click', function() {
 
-webkit.messageHandlers.inputField.postMessage("https://www.ekomgroup.com/kvkk-bilgilendirme/");
+webkit.messageHandlers.externalUrl.postMessage("https://www.ekomgroup.com/kvkk-bilgilendirme/");
 });
 
 userLocation.addEventListener('click', function() {
 
 webkit.messageHandlers.userLocation.postMessage("location");
 });
+
+
 
 var toastMessage = {
      "alertType": "Success",
